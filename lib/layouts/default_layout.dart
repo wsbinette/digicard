@@ -30,7 +30,10 @@ class DefaultLayout extends StatelessWidget {
         assert(index < children.length);
         return CupertinoTabView(
           builder: (BuildContext context) {
-            return children[index];
+            return Padding(
+              padding: const EdgeInsets.only(top: 60, bottom: 20, left: 10, right: 10),
+              child: children[index],
+            );
           },
         );
       },
