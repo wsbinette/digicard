@@ -20,7 +20,7 @@ class DefaultLayout extends StatelessWidget {
             icon: Icon(CupertinoIcons.person_2_square_stack),
           ),
         ],
-        backgroundColor: CupertinoColors.systemIndigo.highContrastColor,
+        backgroundColor: const Color(0xFF556b2f),
         inactiveColor: CupertinoColors.systemGrey2,
         activeColor: CupertinoColors.white,
         iconSize: 25,
