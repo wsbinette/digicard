@@ -1,4 +1,5 @@
 import 'package:digicard/layouts/default_layout.dart';
+import 'package:digicard/pages/contacts_page.dart';
 import 'package:digicard/pages/home_page.dart';
 import 'package:digicard/pages/qr_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,7 @@ class DigicardApp extends StatelessWidget {
 		children: [
 		QRPage(),
 		HomePage(),
-		QRPage(),
+		ContactsPage(),
 	  ])
     );
   }
