@@ -16,13 +16,11 @@ class DigicardApp extends StatelessWidget {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     return const CupertinoApp(
-      theme: CupertinoThemeData(brightness: Brightness.light),
-      home: DefaultLayout(
-		children: [
-		QRPage(),
-		HomePage(),
-		ContactsPage(),
-	  ])
-    );
+        theme: CupertinoThemeData(brightness: Brightness.light),
+        home: DefaultLayout(children: [
+          QRPage(),
+          HomePage(),
+          ContactsPage(),
+        ]));
   }
 }
