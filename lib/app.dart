@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class DigicardApp extends StatelessWidget {
@@ -23,11 +24,34 @@ class DigicardHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Cupertino Store'),
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.qrcode),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.at),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.person_2_square_stack),
+          ),
+        ],
+        backgroundColor: Colors.indigo[900],
+        inactiveColor: Colors.indigo[200]!,
+        activeColor: Colors.white,
+        iconSize: 25,
+        currentIndex: 1,
       ),
-      child: SizedBox(),
+      tabBuilder: (BuildContext context, int index) {
+        return CupertinoTabView(
+          builder: (BuildContext context) {
+            return Center(
+              child: Text('Content of tab $index'),
+            );
+          },
+        );
+      },
     );
   }
 }
