@@ -38,6 +38,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   intl: ^0.18.1
   provider: ^6.1.1
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -79,10 +80,14 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: Yaseva
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #       - asset: fonts/Yeseva_One/YesevaOne-Regular.ttf
+  #         weight: 400
+  #   - family: Montserrat
+  #     fonts:
+  #       - asset: fonts/Montserrat/Montserrat-VariableFont_wght.ttf
+  #       - asset: fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
