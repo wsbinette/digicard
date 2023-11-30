@@ -1,3 +1,4 @@
+import "package:digicard/styles/styles.dart";
 import "package:flutter/cupertino.dart";
 
 class DefaultLayout extends StatelessWidget {
@@ -20,7 +21,7 @@ class DefaultLayout extends StatelessWidget {
             icon: Icon(CupertinoIcons.person_2_square_stack),
           ),
         ],
-        backgroundColor: const Color(0xFF556b2f),
+        backgroundColor: DigicardStyles.primaryColor,
         inactiveColor: CupertinoColors.systemGrey2,
         activeColor: CupertinoColors.white,
         iconSize: 25,

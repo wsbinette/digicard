@@ -1,8 +1,10 @@
+import "package:digicard/styles/styles.dart";
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
 class ProfileHeader extends StatelessWidget {
-  //Grab an S3 or GCP bucket for images here instead of raw files
+  //GCP bucket for images here instead of raw files
   final AssetImage headshot = const AssetImage("assets/images/headshot.jpeg");
 
   const ProfileHeader({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class ProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 60, bottom: 20, left: 10, right: 10),
-      color: const Color(0xFF556b2f),
+      color: DigicardStyles.primaryColor,
       child: Column(
         children: [
           Row(
@@ -23,8 +25,7 @@ class ProfileHeader extends StatelessWidget {
                   shape: BoxShape.circle,
                   //TODO import custom user set colors here
                   border: Border.all(
-                    // color: const Color(0xFF556b2f),
-                    color: const Color(0xFFFFFFFF),
+                    color: CupertinoColors.white,
                     width: 5,
                   ),
                 ),
@@ -49,8 +50,7 @@ class ProfileHeader extends StatelessWidget {
                         style: GoogleFonts.montserrat(
                           textStyle: const TextStyle(
                             fontSize: 30,
-                            // color: Color(0xFF556b2f),
-                            color: Color(0xFFFFFFFF),
+                            color: CupertinoColors.white,
                             fontWeight: FontWeight.w600,
                         ),
                       )),
@@ -59,13 +59,13 @@ class ProfileHeader extends StatelessWidget {
                         style: GoogleFonts.montserrat(
                           textStyle: const TextStyle(
                             fontSize: 15,
-                            // color: Color(0xFF556b2f),
-                            color: Color(0xFFFFFFFF),
+                            color: CupertinoColors.white,
                           ),
                         ),
                       ),
                     ],
-                  ))
+                  )
+                )
             ],
           )
         ],
