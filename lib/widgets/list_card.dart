@@ -30,7 +30,7 @@ class ListCard extends StatelessWidget{
             color: DigicardStyles.primaryColor,
           ),
         child: Row(
-          // mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             FaIcon(icon, color: DigicardStyles.primaryColor, size: 25),
