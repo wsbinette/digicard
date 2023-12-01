@@ -3,6 +3,7 @@ import 'package:digicard/widgets/list_card.dart';
 import 'package:digicard/widgets/profile_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,7 +23,19 @@ class HomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CubeCard(title: "Text", icon: CupertinoIcons.chat_bubble, onTap: () => {}),
+                  CubeCard(
+                    title: "Text", 
+                    icon: CupertinoIcons.chat_bubble, 
+                    onTap: ()async{
+                      Uri message = Uri.parse(
+                        "sms:?body=Hi! We met at the NYC AI Summit. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer\nLinkedIn: https://www.linkedin.com/in/wsbinette/"
+                      );
+                      if(await canLaunchUrl(message)){
+                        await launchUrl(message);
+                      } else{
+                        throw 'Could not launch $message';
+                      }
+                  }),
                   // const Spacer(),
                   CubeCard(
                     title: "Email",
