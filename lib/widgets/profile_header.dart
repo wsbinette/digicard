@@ -50,6 +50,7 @@ class ProfileHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //Idea: put an opacity gradient over background to allow text to be visible, but have custom backgrounds.
               Container(
                   padding: const EdgeInsets.only(top: 10),
                   child: Column(
