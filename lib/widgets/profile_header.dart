@@ -41,7 +41,7 @@ class ProfileHeader extends StatelessWidget {
                 ),
                 //ignore: prefer_const_constructors
                 child: CircleAvatar(
-                  radius: 90,
+                  radius: 75,
                   backgroundImage: headshot,
                 ),
               ),
@@ -51,7 +51,7 @@ class ProfileHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                  padding: const EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.only(top: 10),
                   child: Column(
                     children: [
                       //TODO import proper data here
@@ -64,6 +64,7 @@ class ProfileHeader extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                         ),
                       )),
+                      const SizedBox(height: 5),
                       Text(
                         "Full-Stack Engineer | Technical Project Manager",
                         style: GoogleFonts.montserrat(
