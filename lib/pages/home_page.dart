@@ -25,8 +25,8 @@ class HomePage extends StatelessWidget {
                   CubeCard(title: "Text", icon: CupertinoIcons.chat_bubble, onTap: () => {}),
                   // const Spacer(),
                   CubeCard(
-                    title: "Contact",
-                    icon: CupertinoIcons.person_2_square_stack,
+                    title: "Email",
+                    icon: CupertinoIcons.envelope,
                     onTap: () => {}
                   ),
                 ],
@@ -39,34 +39,34 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 7),
               ListCard(
-                title: "Resume",
-                icon: CupertinoIcons.link,
-                onTap: () => {},
-              ),
-              const SizedBox(height: 7),
-              ListCard(
-                title: "Text",
-                icon: CupertinoIcons.chat_bubble,
-                onTap: () => {},
-              ),
-              const SizedBox(height: 7),
-              ListCard(
-                title: "Email",
-                icon: CupertinoIcons.envelope,
-                onTap: () => {},
-              ),
-              const SizedBox(height: 7),
-              ListCard(
                 title: "Tap",
                 icon: FontAwesomeIcons.nfcDirectional,
                 onTap: () => {},
               ),
               const SizedBox(height: 7),
               ListCard(
-                title: "Display QR Code",
-                icon: CupertinoIcons.qrcode,
+                title: "Resume",
+                icon: CupertinoIcons.link,
                 onTap: () => {},
               ),
+              const SizedBox(height: 7),
+              ListCard(
+                title: "Github",
+                icon: FontAwesomeIcons.github,
+                onTap: () => {},
+              ),
+              // const SizedBox(height: 7),
+              // ListCard(
+              //   title: "Email",
+              //   icon: CupertinoIcons.envelope,
+              //   onTap: () => {},
+              // ),
+              // const SizedBox(height: 7),
+              // ListCard(
+              //   title: "Display QR Code",
+              //   icon: CupertinoIcons.qrcode,
+              //   onTap: () => {},
+              // ),
             ],
           )
         )
