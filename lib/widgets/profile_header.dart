@@ -13,7 +13,17 @@ class ProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 60, bottom: 20, left: 10, right: 10),
-      color: DigicardStyles.primaryColor,
+      // color: DigicardStyles.primaryColor,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            DigicardStyles.primaryColor,
+            DigicardStyles.primaryColorDark,
+          ],
+        ),
+      ),
       child: Column(
         children: [
           Row(
