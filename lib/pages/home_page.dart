@@ -4,7 +4,6 @@ import 'package:digicard/widgets/list_card.dart';
 import 'package:digicard/widgets/profile_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -43,32 +42,23 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              ListCard(
+              const ListCard(
                 title: "LinkedIn",
                 icon: FontAwesomeIcons.linkedin,
-                onTap: () async => MessageLauncher.launchMessage(
-                  "sms:?body=Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my LinkedIn! https://www.linkedin.com/in/wsbinette/"
-                )
+                link: 'https://www.linkedin.com/in/wsbinette/',
+                
               ),
-              // const SizedBox(height: 7),
-              // ListCard(
-              //   title: "Tap",
-              //   icon: FontAwesomeIcons.nfcDirectional,
-              //   onTap: () => {},
-              // ),
               const SizedBox(height: 7),
-              ListCard(
+              const ListCard(
                 title: "Resume",
                 icon: CupertinoIcons.link,
-                onTap: () => {},
+                link: '',
               ),
               const SizedBox(height: 7),
-              ListCard(
+              const ListCard(
                 title: "Github",
                 icon: FontAwesomeIcons.github,
-                onTap: () async => MessageLauncher.launchMessage(
-                  "sms:?body=Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my Github! https://www.github.com/wsbinette/"
-                )
+                link: 'https://www.github.com/wsbinette/',
               ),
             ],
           )
