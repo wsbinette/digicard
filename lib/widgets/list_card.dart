@@ -86,8 +86,8 @@ class ListCard extends StatelessWidget{
                     const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () => {
-                        qrData.setData("https://www.github.com/wsbinette"),
-                        qrData.setResource("Github", FontAwesomeIcons.github)
+                        qrData.setData(resource.link),
+                        qrData.setResource(resource.name, resource.icon)
                       },
                       child: Container(
                           padding: const EdgeInsets.all(10),
