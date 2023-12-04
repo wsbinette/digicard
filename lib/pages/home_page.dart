@@ -1,3 +1,4 @@
+import 'package:digicard/utils/messageLaunchers.dart';
 import 'package:digicard/widgets/cube_card.dart';
 import 'package:digicard/widgets/list_card.dart';
 import 'package:digicard/widgets/profile_header.dart';
@@ -26,36 +27,35 @@ class HomePage extends StatelessWidget {
                   CubeCard(
                     title: "Text", 
                     icon: CupertinoIcons.chat_bubble, 
-                    onTap: ()async{
-                      Uri message = Uri.parse(
-                        "sms:?body=Hi! We met at the NYC AI Summit. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer\nLinkedIn: https://www.linkedin.com/in/wsbinette/"
-                      );
-                      if(await canLaunchUrl(message)){
-                        await launchUrl(message);
-                      } else{
-                        throw 'Could not launch $message';
-                      }
-                  }),
+                    onTap: ()async => MessageLauncher.launchMessage(
+                      "sms:?body=Hi! We met at AI Summit NYC. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer\nEmail:wsebinette@gmail.com\nLinkedIn: https://www.linkedin.com/in/wsbinette/\nGithub: https://www.github.com/wsbinette/\nEmail:wsebinette@gmail.com"
+                    )
+                  ), 
                   // const Spacer(),
                   CubeCard(
                     title: "Email",
                     icon: CupertinoIcons.envelope,
-                    onTap: () => {}
-                  ),
+                    onTap: ()async => MessageLauncher.launchMessage(
+                      //TODO: add email address here
+                      "mailto:wsbinette@icloud.com"
+                    )
+                  )
                 ],
               ),
               const SizedBox(height: 10),
               ListCard(
                 title: "LinkedIn",
                 icon: FontAwesomeIcons.linkedin,
-                onTap: () => {},
+                onTap: () async => MessageLauncher.launchMessage(
+                  "sms:?body=Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my LinkedIn! https://www.linkedin.com/in/wsbinette/"
+                )
               ),
-              const SizedBox(height: 7),
-              ListCard(
-                title: "Tap",
-                icon: FontAwesomeIcons.nfcDirectional,
-                onTap: () => {},
-              ),
+              // const SizedBox(height: 7),
+              // ListCard(
+              //   title: "Tap",
+              //   icon: FontAwesomeIcons.nfcDirectional,
+              //   onTap: () => {},
+              // ),
               const SizedBox(height: 7),
               ListCard(
                 title: "Resume",
@@ -66,20 +66,10 @@ class HomePage extends StatelessWidget {
               ListCard(
                 title: "Github",
                 icon: FontAwesomeIcons.github,
-                onTap: () => {},
+                onTap: () async => MessageLauncher.launchMessage(
+                  "sms:?body=Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my Github! https://www.github.com/wsbinette/"
+                )
               ),
-              // const SizedBox(height: 7),
-              // ListCard(
-              //   title: "Email",
-              //   icon: CupertinoIcons.envelope,
-              //   onTap: () => {},
-              // ),
-              // const SizedBox(height: 7),
-              // ListCard(
-              //   title: "Display QR Code",
-              //   icon: CupertinoIcons.qrcode,
-              //   onTap: () => {},
-              // ),
             ],
           )
         )
