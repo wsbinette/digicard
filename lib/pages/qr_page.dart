@@ -1,6 +1,8 @@
+import 'package:digicard/main.dart';
 import 'package:digicard/styles/styles.dart';
 import 'package:digicard/widgets/profile_header.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class QRPage extends StatelessWidget {
@@ -27,20 +29,24 @@ class QRPage extends StatelessWidget {
                       width: 5,
                     ),
                 ),
-                child: QrImageView(
-                  padding: const EdgeInsets.all(10),
-                  backgroundColor: DigicardStyles.primaryColor,
-                  data: 'https://www.linkedin.com/in/wsbinette/',
-                  version: QrVersions.auto,
-                  dataModuleStyle: const QrDataModuleStyle(
-                    dataModuleShape: QrDataModuleShape.circle,
-                    color: CupertinoColors.white,
-                  ),
-                  eyeStyle: const  QrEyeStyle(
-                    color: CupertinoColors.white, 
-                    eyeShape: QrEyeShape.circle
-                  ),
-                  semanticsLabel: "Will Binette's LinkedIn",
+                child: Consumer<QRCodeData>(
+                  builder: (context, qrCodeData, child){
+                    return QrImageView(
+                      padding: const EdgeInsets.all(10),
+                      backgroundColor: DigicardStyles.primaryColor,
+                      data: qrCodeData.data,
+                      version: QrVersions.auto,
+                      dataModuleStyle: const QrDataModuleStyle(
+                        dataModuleShape: QrDataModuleShape.circle,
+                        color: CupertinoColors.white,
+                      ),
+                      eyeStyle: const  QrEyeStyle(
+                        color: CupertinoColors.white, 
+                        eyeShape: QrEyeShape.circle
+                      ),
+                      semanticsLabel: "Will Binette's LinkedIn",
+                    );
+                  }
                 ),
               ),
             ),
