@@ -45,20 +45,28 @@ class HomePage extends StatelessWidget {
               const ListCard(
                 title: "LinkedIn",
                 icon: FontAwesomeIcons.linkedin,
-                link: 'https://www.linkedin.com/in/wsbinette/',
+                resource: ResourceMeta(name: "LinkedIn", icon: FontAwesomeIcons.linkedin, link: "https://www.linkedin.com/in/wsbinette/"),
                 
               ),
               const SizedBox(height: 7),
               const ListCard(
                 title: "Resume",
                 icon: CupertinoIcons.link,
-                link: '',
+                resource: ResourceMeta(
+                  name: "Download Resume",
+                  icon: CupertinoIcons.link,
+                  link: "Resume download link here"
+                ),
               ),
               const SizedBox(height: 7),
               const ListCard(
                 title: "Github",
                 icon: FontAwesomeIcons.github,
-                link: 'https://www.github.com/wsbinette/',
+                resource: ResourceMeta(
+                  name: "Github",
+                  icon: FontAwesomeIcons.github,
+                  link: "https://www.github.com/wsbinette/"
+                ),
               ),
             ],
           )

@@ -6,24 +6,29 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+class ResourceMeta{
+  final String name;
+  final IconData icon;
+  final String link;
+
+  const ResourceMeta({required this.name, required this.icon, required this.link});
+}
+
 class ListCard extends StatelessWidget{
   final String title;
   final IconData icon;
-  final String? message;
-  final String? resourceName;
-  final String link;
+  final ResourceMeta resource;
+  final String? customMessage;
 
-  const ListCard({Key? key, required this.title, required this.icon, required this.link, this.message, this.resourceName}) : super(key: key);
+  const ListCard({Key? key, required this.title, required this.icon, required this.resource, this.customMessage}) : super(key: key);
 
   @override
   Widget build(BuildContext context){
     final qrData = context.read<QRCodeData>();
 
-    String formattedMessage = "Hi! We met at the AI Summit NYC. My name is Will Binette. Here's the info you requested: $link";
-    if(message != null){
-      formattedMessage = "$message $link";
-    }else if (resourceName != null && message == null) {
-      formattedMessage = "Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my $resourceName: $link";
+    String formattedMessage = "Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my $resource.name: $resource.link";
+    if(customMessage != null){
+      formattedMessage = "$customMessage $resource.link";
     }
 
     return Container(
@@ -81,7 +86,8 @@ class ListCard extends StatelessWidget{
                     const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () => {
-                        qrData.setData("https://www.github.com/wsbinette")
+                        qrData.setData("https://www.github.com/wsbinette"),
+                        qrData.setResource("Github", FontAwesomeIcons.github)
                       },
                       child: Container(
                           padding: const EdgeInsets.all(10),
