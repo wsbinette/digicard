@@ -2,10 +2,8 @@ import 'package:digicard/main.dart';
 import 'package:digicard/styles/styles.dart';
 import 'package:digicard/widgets/profile_header.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-
 class QRPage extends StatelessWidget {
   const QRPage({super.key});
 
