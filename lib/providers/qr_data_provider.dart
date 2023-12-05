@@ -30,4 +30,11 @@ class QRCodeData with ChangeNotifier {
     _icon = newIcon;
     notifyListeners();
   }
+
+  void reset(){
+    _data = "https://www.linkedin.com/in/wsbinette/";
+    _type = "LinkedIn";
+    _icon = FontAwesomeIcons.linkedin;
+    notifyListeners();
+  }
 }

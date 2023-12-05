@@ -3,6 +3,7 @@ import "package:digicard/pages/contacts_page.dart";
 import "package:digicard/pages/home_page.dart";
 import "package:digicard/pages/qr_page.dart";
 import "package:digicard/providers/navigation_provider.dart";
+import "package:digicard/providers/qr_data_provider.dart";
 import "package:digicard/styles/styles.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
@@ -45,6 +46,7 @@ class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateM
   @override
   Widget build(BuildContext context) {
     NavigationProvider nav = Provider.of<NavigationProvider>(context);
+    QRCodeData qrData = Provider.of<QRCodeData>(context);
 
     return Scaffold(
       body: PageView.builder(
@@ -63,11 +65,14 @@ class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateM
         backgroundColor: DigicardStyles.primaryColor,
         selectedIndex: _currentIndex,
         onDestinationSelected: (int index) {
+          if(index == _currentIndex) return;
+          setState(() => _currentIndex = index);
           nav.navigateToPage(
             index,
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
+          qrData.reset();
         },
         destinations: allDestinations.map((Destination destination) {
           return NavigationDestination(
