@@ -2,9 +2,11 @@ import "package:digicard/layouts/navigation/destination.dart";
 import "package:digicard/pages/contacts_page.dart";
 import "package:digicard/pages/home_page.dart";
 import "package:digicard/pages/qr_page.dart";
+import "package:digicard/providers/navigation_provider.dart";
 import "package:digicard/styles/styles.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:provider/provider.dart";
 
 class DefaultLayout extends StatefulWidget {
   const DefaultLayout({Key? key}) : super(key: key);
@@ -21,13 +23,11 @@ class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateM
   ];
 
   late final List<Widget> destinationViews;
-  late final PageController _pageController;
   int _currentIndex = 1;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: _currentIndex);
     destinationViews = allDestinations.map((Destination destination) {
       switch (destination.route) {
         case '/':
@@ -43,16 +43,12 @@ class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateM
   }
 
   @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    NavigationProvider nav = Provider.of<NavigationProvider>(context);
+
     return Scaffold(
       body: PageView.builder(
-        controller: _pageController,
+        controller: nav.pageController,
         itemCount: allDestinations.length,
         onPageChanged: (index) {
           setState(() => _currentIndex = index);
@@ -67,7 +63,7 @@ class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateM
         backgroundColor: DigicardStyles.primaryColor,
         selectedIndex: _currentIndex,
         onDestinationSelected: (int index) {
-          _pageController.animateToPage(
+          nav.navigateToPage(
             index,
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,

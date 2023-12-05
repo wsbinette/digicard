@@ -1,4 +1,5 @@
-import 'package:digicard/main.dart';
+import 'package:digicard/providers/navigation_provider.dart';
+import 'package:digicard/providers/qr_data_provider.dart';
 import 'package:digicard/styles/styles.dart';
 import 'package:digicard/utils/MessageLaunchers.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,10 +26,11 @@ class ListCard extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     final qrData = context.read<QRCodeData>();
+    NavigationProvider nav = Provider.of<NavigationProvider>(context);
 
-    String formattedMessage = "Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my $resource.name: $resource.link";
+    String formattedMessage = "Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my ${resource.name}: ${resource.link}";
     if(customMessage != null){
-      formattedMessage = "$customMessage $resource.link";
+      formattedMessage = "$customMessage ${resource.link}";
     }
 
     return Container(
@@ -85,9 +87,10 @@ class ListCard extends StatelessWidget{
                     ),
                     const SizedBox(width: 10),
                     GestureDetector(
-                      onTap: () => {
-                        qrData.setData(resource.link),
-                        qrData.setResource(resource.name, resource.icon)
+                      onTap: () {
+                        qrData.setData(resource.link);
+                        qrData.setResource(resource.name, resource.icon);
+                        nav.navigateToPage(0);
                       },
                       child: Container(
                           padding: const EdgeInsets.all(10),
