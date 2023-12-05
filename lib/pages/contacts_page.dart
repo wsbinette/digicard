@@ -1,3 +1,4 @@
+import 'package:digicard/layouts/default_layout.dart';
 import 'package:flutter/cupertino.dart';
 
 class ContactsPage extends StatelessWidget {
@@ -5,7 +6,7 @@ class ContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text('Welcome to the Contacts Page!'),
     );
   }

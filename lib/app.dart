@@ -1,9 +1,6 @@
 import 'package:digicard/layouts/default_layout.dart';
-import 'package:digicard/pages/contacts_page.dart';
-import 'package:digicard/pages/home_page.dart';
-import 'package:digicard/pages/qr_page.dart';
 import 'package:digicard/styles/styles.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,23 +14,21 @@ class DigicardApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-    return CupertinoApp(
-        theme: CupertinoThemeData(
+    return MaterialApp(
+        theme: ThemeData(
           brightness: Brightness.light,
-          scaffoldBackgroundColor: CupertinoColors.white,
-          textTheme: CupertinoTextThemeData(
-            textStyle: GoogleFonts.montserrat(
-              color: DigicardStyles.primaryColor,
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: GoogleFonts.montserrat().fontFamily,
+          textTheme: TextTheme(
+            bodyMedium: GoogleFonts.montserrat(
               fontSize: 20,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
+              color: DigicardStyles.primaryColor,
             ),
-            
           ),
+          
         ),
-        home: const DefaultLayout(children: [
-          QRPage(),
-          HomePage(),
-          ContactsPage(),
-        ]));
+        home: const DefaultLayout(),
+      );
   }
 }

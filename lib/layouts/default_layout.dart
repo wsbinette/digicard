@@ -1,40 +1,88 @@
+import "package:digicard/layouts/navigation/destination.dart";
+import "package:digicard/pages/contacts_page.dart";
+import "package:digicard/pages/home_page.dart";
+import "package:digicard/pages/qr_page.dart";
 import "package:digicard/styles/styles.dart";
 import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
 
-class DefaultLayout extends StatelessWidget {
-  final List<Widget> children;
+class DefaultLayout extends StatefulWidget {
+  const DefaultLayout({Key? key}) : super(key: key);
 
-  const DefaultLayout({Key? key, required this.children}) : super(key: key);
+  @override
+  State<DefaultLayout> createState() => _DefaultLayoutState();
+}
+
+class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateMixin<DefaultLayout> {
+  static const List<Destination> allDestinations = <Destination>[
+    Destination(0, '/qr', DestinationInfo('QR', CupertinoIcons.qrcode)),
+    Destination(1, '/', DestinationInfo('Home', CupertinoIcons.at)),
+    Destination(2, '/contacts', DestinationInfo('Contacts', CupertinoIcons.person_2_square_stack)),
+  ];
+
+  late final List<Widget> destinationViews;
+  late final PageController _pageController;
+  int _currentIndex = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _currentIndex);
+    destinationViews = allDestinations.map((Destination destination) {
+      switch (destination.route) {
+        case '/':
+          return const HomePage();
+        case '/qr':
+          return const QRPage();
+        case '/contacts':
+          return const ContactsPage();
+        default:
+          return const HomePage();
+      }
+    }).toList();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.qrcode),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.at),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person_2_square_stack),
-          ),
-        ],
-        backgroundColor: DigicardStyles.primaryColor,
-        inactiveColor: CupertinoColors.systemGrey2,
-        activeColor: CupertinoColors.white,
-        iconSize: 25,
-        currentIndex: 1,
+    return Scaffold(
+      body: PageView.builder(
+        controller: _pageController,
+        itemCount: allDestinations.length,
+        onPageChanged: (index) {
+          setState(() => _currentIndex = index);
+        },
+        itemBuilder: (context, index) {
+          return destinationViews[index];
+        },
       ),
-      tabBuilder: (BuildContext context, int index) {
-        assert(index < children.length);
-        return CupertinoTabView(
-          builder: (BuildContext context) {
-              return children[index];
-          },
-        );
-      },
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        indicatorColor: Colors.transparent,
+        backgroundColor: DigicardStyles.primaryColor,
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (int index) {
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        },
+        destinations: allDestinations.map((Destination destination) {
+          return NavigationDestination(
+            icon: Icon(destination.info.icon,
+                color: _currentIndex == destination.index
+                    ? destination.info.activeColor
+                    : Colors.grey[200]),
+            label: destination.info.title,
+          );
+        }).toList(),
+      ),
     );
   }
 }
