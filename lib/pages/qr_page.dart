@@ -1,4 +1,4 @@
-import 'package:digicard/main.dart';
+import 'package:digicard/providers/qr_data_provider.dart';
 import 'package:digicard/styles/styles.dart';
 import 'package:digicard/widgets/profile_header.dart';
 import 'package:flutter/cupertino.dart';
