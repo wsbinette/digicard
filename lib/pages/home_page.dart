@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
                     title: "Text", 
                     icon: CupertinoIcons.chat_bubble, 
                     onTap: ()async => MessageLauncher.launchMessage(
-                      "sms:?body=Hi! We met at AI Summit NYC. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer\nEmail:wsebinette@gmail.com\nLinkedIn: https://www.linkedin.com/in/wsbinette/\nGithub: https://www.github.com/wsbinette/\nEmail:wsebinette@gmail.com"
+                      "sms:?body=Hi! This is Will Binette. We met at the AI Summit in NYC. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer | Technical Project Manager\nEmail: wsebinette@gmail.com\Phone: 505-917-7900\nLinkedIn: https://www.linkedin.com/in/wsbinette/\nGithub: https://www.github.com/wsbinette/"
                     )
                   ), 
                   // const Spacer(),
@@ -50,16 +50,6 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 7),
               const ListCard(
-                title: "Resume",
-                icon: CupertinoIcons.link,
-                resource: ResourceMeta(
-                  name: "Download Resume",
-                  icon: CupertinoIcons.link,
-                  link: "Resume download link here"
-                ),
-              ),
-              const SizedBox(height: 7),
-              const ListCard(
                 title: "Github",
                 icon: FontAwesomeIcons.github,
                 resource: ResourceMeta(
@@ -67,6 +57,15 @@ class HomePage extends StatelessWidget {
                   icon: FontAwesomeIcons.github,
                   link: "https://www.github.com/wsbinette/"
                 ),
+              ),
+              const SizedBox(height: 7),
+              const ListCard(
+                title: "Resume",
+                icon: CupertinoIcons.link,
+                resource: ResourceMeta(
+                    name: "Resume",
+                    icon: CupertinoIcons.cloud_download,
+                    link: "https://wsbinette.github.io/downloads/"),
               ),
             ],
           )

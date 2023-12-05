@@ -28,7 +28,7 @@ class ListCard extends StatelessWidget{
     final qrData = context.read<QRCodeData>();
     NavigationProvider nav = Provider.of<NavigationProvider>(context);
 
-    String formattedMessage = "Hi! We met at the AI Summit NYC. My name is Will Binette. Here's my ${resource.name}: ${resource.link}";
+    String formattedMessage = "Hi! This is Will Binette from the AI Summit NYC.\nHere's my ${resource.name}: ${resource.link}";
     if(customMessage != null){
       formattedMessage = "$customMessage ${resource.link}";
     }
