@@ -16,7 +16,7 @@ class DefaultLayout extends StatefulWidget {
   State<DefaultLayout> createState() => _DefaultLayoutState();
 }
 
-class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateMixin<DefaultLayout> {
+class _DefaultLayoutState extends State<DefaultLayout> {
   static const List<Destination> allDestinations = <Destination>[
     Destination(0, '/qr', DestinationInfo('QR', CupertinoIcons.qrcode)),
     Destination(1, '/', DestinationInfo('Home', CupertinoIcons.at)),
