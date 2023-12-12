@@ -43,6 +43,13 @@ class _DefaultLayoutState extends State<DefaultLayout> with TickerProviderStateM
     }).toList();
   }
 
+  @override 
+  void dispose() {
+    //TODO dispose of the providers
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     NavigationProvider nav = Provider.of<NavigationProvider>(context);

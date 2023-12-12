@@ -6,8 +6,8 @@ class ContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Welcome to the Contacts Page!'),
+    return const Center(
+      child: Text('Contacts Page Coming Soon!'),
     );
   }
 }
