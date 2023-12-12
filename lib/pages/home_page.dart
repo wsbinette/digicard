@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                         icon: CupertinoIcons.envelope,
                         onTap: () async => MessageLauncher.launchMessage(
                             //TODO: add email address here
-                            "mailto:?subject=Will Binette from NYC Startup Xmas Party&body=Hi! This is Will Binette. We met at the AI Summit in NYC. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer | Technical Project Manager\nEmail: wsebinette@gmail.com\Phone: 505-917-7900\nLinkedIn: https://www.linkedin.com/in/wsbinette/\nGithub: https://www.github.com/wsbinette/"))
+                            "mailto:?subject=Will Binette from Startup Xmas Party&body=Hi! This is Will Binette. We met at the Startup Xmas Party. I'd love to connect with you! Here's my info below: \n\nWilliam Binette\nFull-Stack Software Engineer | Technical Project Manager\nEmail: wsebinette@gmail.com\Phone: 505-917-7900\nLinkedIn: https://www.linkedin.com/in/wsbinette/\nGithub: https://www.github.com/wsbinette/"))
                   ],
                 ),
                 const SizedBox(height: 10),
