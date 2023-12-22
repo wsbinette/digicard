@@ -22,7 +22,7 @@ The current functional features include:
 - QR Code Generator
     - Generates a styled QR Code for easy scanning and sending info (managed through your home page)
 
-## Features Coming Soon
+## Features Coming Soon (Early to Mid January 2024)
 Here's a list of whays coming up next in the roadmap for this project. 
 - Contacts Page 
     - This will add the ability to add contacts not only to the app itself, but to export them to your associated Contact Book in your OS.
